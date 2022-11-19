@@ -26,6 +26,7 @@ const InputName = () => {
         controls
         className='rounded-xl'
       ></video>
+      <h2>HOLA PAUL</h2>
       <h1 className='text-6xl'>Hello trainer!</h1>
       <input
         className='input input-bordered w-full max-w-xs'
