@@ -61,6 +61,34 @@ const Pokedex = () => {
           </option>
         ))}
       </select>
+      <div>
+        <ul>
+          <button
+            onClick={() => setPage(page - 1)}
+            disabled={page === 1}
+            className='btn btn-outline btn-success'
+          >
+            prev
+          </button>
+          {array.map((number) => (
+            <button
+              className='m-2 text-2xl btn btn-ghost'
+              key={number}
+              onClick={() => setPage(number)}
+            >
+              {number}
+            </button>
+          ))}
+          <button
+            onClick={() => setPage(page + 1)}
+            disabled={page === totalPage}
+            className='btn btn-outline btn-success'
+          >
+            next
+          </button>
+        </ul>
+      </div>
+
       <ul className='text-4xl'>
         {pokemonPagination.map((pokemon) => (
           <CharacterPokemon
@@ -74,19 +102,23 @@ const Pokedex = () => {
           <button
             onClick={() => setPage(page - 1)}
             disabled={page === 1}
-            className='w-16 h-8 p-8 bg-white'
+            className='btn btn-outline btn-success'
           >
             prev
           </button>
           {array.map((number) => (
-            <button key={number} onClick={() => setPage(number)}>
+            <button
+              className='m-2 text-2xl btn btn-ghost'
+              key={number}
+              onClick={() => setPage(number)}
+            >
               {number}
             </button>
           ))}
           <button
             onClick={() => setPage(page + 1)}
             disabled={page === totalPage}
-            className='w-16 h-8 p-8 bg-white'
+            className='btn btn-outline btn-success'
           >
             next
           </button>
