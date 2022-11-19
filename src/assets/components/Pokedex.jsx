@@ -48,11 +48,17 @@ const Pokedex = () => {
       <h1 className='text-6xl'>pokedex</h1>
       <p className='text-6xl'>Welcome ! {userName}</p>
       <input
-        type='text'
+        list='pokemon'
+        name='pokemon'
         placeholder='search pokemon'
         value={pokemonName}
         onChange={(e) => setPokemonName(e.target.value)}
       />
+      <datalist id='pokemon'>
+        {pokemon.map((pok) => (
+          <option value={pok.name} key={pok.name}></option>
+        ))}
+      </datalist>
       <button onClick={changePokemonName}>shearch</button>
       <select onChange={filterType} name='' id=''>
         {tiposPokemon.map((tipos) => (
