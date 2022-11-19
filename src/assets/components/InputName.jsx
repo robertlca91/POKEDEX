@@ -19,6 +19,7 @@ const InputName = () => {
   return (
     <div className='flex flex-col text-center justify-center items-center h-screen gap-6 '>
       <img src={pokebola} width='350px' alt='pokedex' />
+      <h2>desde el terminal de la rama robert</h2>
       <video
         src={ash}
         width='350px'
