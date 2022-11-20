@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import CharacterPokemon from './CharacterPokemon'
 import { useNavigate } from 'react-router-dom'
+import ChangePagination from './ChangePagination'
+
 
 const Pokedex = () => {
   const userName = useSelector((state) => state.name)
@@ -78,7 +80,7 @@ const Pokedex = () => {
           </option>
         ))}
       </select>
-      <div>
+      <div className='btn-group'>
         <ul>
           <button
             onClick={() => setPage(page - 1)}
@@ -88,8 +90,9 @@ const Pokedex = () => {
             prev
           </button>
           {array.map((number) => (
+
             <button
-              className='m-2 text-2xl btn btn-ghost'
+              className='btn'
               key={number}
               onClick={() => setPage(number)}
             >
@@ -106,6 +109,18 @@ const Pokedex = () => {
         </ul>
       </div>
 
+      <div className='botones'>
+
+        <div className="btn-group">
+          <button className="btn">1</button>
+          <button className="btn">2</button>
+          <button className="btn btn-disabled">...</button>
+          <button className="btn">99</button>
+          <button className="btn">100</button>
+        </div>
+      </div>
+
+
       <section>
         <ul className='text-4xl w-50 h-50 md:grid grid-cols-4 gap-5'>
           {pokemonPagination.map((pokemon) => (
@@ -116,7 +131,7 @@ const Pokedex = () => {
           ))}
         </ul>
       </section>
-      <div>
+      <div className='btn-group'>
         <ul>
           <button
             onClick={() => setPage(page - 1)}
@@ -127,7 +142,7 @@ const Pokedex = () => {
           </button>
           {array.map((number) => (
             <button
-              className='m-2 text-2xl btn btn-ghost'
+              className='btn'
               key={number}
               onClick={() => setPage(number)}
             >
