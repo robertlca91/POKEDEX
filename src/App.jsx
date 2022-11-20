@@ -8,7 +8,7 @@ import ThemeDark from './assets/components/ThemeDark'
 
 function App() {
   return (
-    <div className='dark:text-secondary text-primary dark:bg-secondary-content h-full'>
+    <div className='dark:text-secondary  dark:bg-secondary-content h-full'>
       <ThemeDark />
       <HashRouter className='App '>
         <Routes>
