@@ -19,7 +19,6 @@ const InputName = () => {
   return (
     <div className='flex flex-col text-center justify-center items-center h-screen gap-6 '>
       <img src={pokebola} width='350px' alt='pokedex' />
-      <h2>desde el terminal de la rama robert</h2>
       <video
         src={ash}
         width='350px'
@@ -27,15 +26,14 @@ const InputName = () => {
         controls
         className='rounded-xl'
       ></video>
-      <h2>HOLA PAUL</h2>
-      <h1 className='text-6xl'>Hello trainer!</h1>
+      <h1 className='text-6xl dark:text-white '>Hello trainer!</h1>
       <input
-        className='input input-bordered w-full max-w-xs'
+        className='input input-bordered w-full max-w-xs dark:text-white'
         type='text'
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
       />
-      <button className='btn btn-wide' onClick={enterName}>
+      <button className='btn btn-wide dark:text-white' onClick={enterName}>
         enter
       </button>
     </div>

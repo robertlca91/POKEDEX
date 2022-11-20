@@ -45,9 +45,10 @@ const Pokedex = () => {
   console.log(pokemon)
   return (
     <div className='flex flex-col items-center justify-center'>
-      <h1 className='text-6xl'>pokedex</h1>
+      <h1 className='text-6xl'>POKEDEX</h1>
       <p className='text-6xl'>Welcome ! {userName}</p>
       <input
+        className='h-10 rounded-xl text-center'
         list='pokemon'
         name='pokemon'
         placeholder='search pokemon'
@@ -59,8 +60,18 @@ const Pokedex = () => {
           <option value={pok.name} key={pok.name}></option>
         ))}
       </datalist>
-      <button onClick={changePokemonName}>shearch</button>
-      <select onChange={filterType} name='' id=''>
+      <button
+        className='btn btn-outline dark:text-white '
+        onClick={changePokemonName}
+      >
+        shearch
+      </button>
+      <select
+        className='input input-bordered input-info w-40 max-w-xs dark:text-white "'
+        onChange={filterType}
+        name=''
+        id='select'
+      >
         {tiposPokemon.map((tipos) => (
           <option value={tipos.url} key={tipos.name}>
             {tipos.name}
