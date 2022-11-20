@@ -96,7 +96,7 @@ const Pokedex = () => {
       </div>
 
       <section>
-        <ul className='text-4xl w-50 h-50'>
+        <ul className='text-4xl w-50 h-50 md:grid grid-cols-4 gap-5'>
           {pokemonPagination.map((pokemon) => (
             <CharacterPokemon
               url={pokemon.url ? pokemon.url : pokemon.pokemon.url}
