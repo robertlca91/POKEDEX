@@ -20,7 +20,7 @@ const CharacterPokemon = ({ url }) => {
             className='w-[180px] h-[180px]'
           />
         </figure>
-
+      <h2>Miguel</h2>
         <h1>{character.name}</h1>
         <p>
           {character.types?.[0].type.name}
