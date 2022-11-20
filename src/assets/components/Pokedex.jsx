@@ -95,14 +95,16 @@ const Pokedex = () => {
         </ul>
       </div>
 
-      <ul className='text-4xl'>
-        {pokemonPagination.map((pokemon) => (
-          <CharacterPokemon
-            url={pokemon.url ? pokemon.url : pokemon.pokemon.url}
-            key={pokemon.url ? pokemon.url : pokemon.pokemon.url}
-          />
-        ))}
-      </ul>
+      <section>
+        <ul className='text-4xl w-50 h-50'>
+          {pokemonPagination.map((pokemon) => (
+            <CharacterPokemon
+              url={pokemon.url ? pokemon.url : pokemon.pokemon.url}
+              key={pokemon.url ? pokemon.url : pokemon.pokemon.url}
+            />
+          ))}
+        </ul>
+      </section>
       <div>
         <ul>
           <button
