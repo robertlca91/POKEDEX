@@ -17,13 +17,15 @@ const InputName = () => {
   }
 
   return (
-    <div className='flex flex-col text-center justify-center items-center h-screen gap-6 '>
+    <div className='flex flex-col text-center justify-center items-center h-screen gap-6 z-50 '>
       <img src={pokebola} width='350px' alt='pokedex' />
       <video
         src={ash}
         width='350px'
         height='350px'
         controls
+        muted
+        autoPlay
         className='rounded-xl'
       ></video>
       <h1 className='text-6xl dark:text-white '>Hello trainer!</h1>

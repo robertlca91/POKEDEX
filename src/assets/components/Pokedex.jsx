@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux'
 import CharacterPokemon from './CharacterPokemon'
 import { useNavigate } from 'react-router-dom'
 import ChangePagination from './ChangePagination'
+import Page from './Page'
 
-
-const Pokedex = () => {
+const Pokedex = ({ isVisible, setIsVisible }) => {
   const userName = useSelector((state) => state.name)
   const [pokemon, setPokemon] = useState([])
   const [pokemonName, setPokemonName] = useState('')
@@ -47,29 +47,37 @@ const Pokedex = () => {
   console.log(pokemon)
   return (
     <div className='flex flex-col items-center justify-center'>
-      <h1 className='text-6xl'>POKEDEX</h1>
-      <p className='text-6xl'>Welcome ! {userName}</p>
+      <div
+        className='absolute top-0 left-0 right-0 bottom-0'
+        onClick={() => setIsVisible(false)}
+      ></div>
+      <div className='flex flex-col items-center justify-center '>
+        <h1 className='text-6xl'>POKEDEX</h1>
+        <p className='text-6xl text-center'>Welcome ! {userName}</p>
+      </div>
       <input
-        className='h-10 rounded-xl text-center'
+        className='h-10 rounded-xl text-center z-50 mt-4'
         list='pokemon'
         name='pokemon'
         placeholder='search pokemon'
         value={pokemonName}
         onChange={(e) => setPokemonName(e.target.value)}
       />
-      <datalist id='pokemon'>
-        {pokemon.map((pok) => (
-          <option value={pok.name} key={pok.name}></option>
-        ))}
-      </datalist>
+      <div className='z-[60]'>
+        <datalist id='pokemon'>
+          {pokemon.map((pok) => (
+            <option value={pok.name} key={pok.name}></option>
+          ))}
+        </datalist>
+      </div>
       <button
-        className='btn btn-outline dark:text-white '
+        className='btn btn-outline dark:text-white z-50 mt-4 mb-4'
         onClick={changePokemonName}
       >
         shearch
       </button>
       <select
-        className='input input-bordered input-info w-40 max-w-xs dark:text-white "'
+        className='input input-bordered input-info w-40 max-w-xs dark:text-white z-50 mb-4'
         onChange={filterType}
         name=''
         id='select'
@@ -80,48 +88,18 @@ const Pokedex = () => {
           </option>
         ))}
       </select>
-      <div className='btn-group'>
-        <ul>
-          <button
-            onClick={() => setPage(page - 1)}
-            disabled={page === 1}
-            className='btn btn-outline btn-success'
-          >
-            prev
-          </button>
-          {array.map((number) => (
+      {/* paginacion */}
+      <Page
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+        page={page}
+        setPage={setPage}
+        array={array}
+        totalPage={totalPage}
+      />
 
-            <button
-              className='btn'
-              key={number}
-              onClick={() => setPage(number)}
-            >
-              {number}
-            </button>
-          ))}
-          <button
-            onClick={() => setPage(page + 1)}
-            disabled={page === totalPage}
-            className='btn btn-outline btn-success'
-          >
-            next
-          </button>
-        </ul>
-      </div>
-
-      <div className='botones'>
-
-        <div className="btn-group">
-          <button className="btn">1</button>
-          <button className="btn">2</button>
-          <button className="btn btn-disabled">...</button>
-          <button className="btn">99</button>
-          <button className="btn">100</button>
-        </div>
-      </div>
-
-
-      <section>
+      {/* cierra paginacion */}
+      <section className='mt-6'>
         <ul className='text-4xl w-50 h-50 md:grid grid-cols-4 gap-5'>
           {pokemonPagination.map((pokemon) => (
             <CharacterPokemon
@@ -131,33 +109,14 @@ const Pokedex = () => {
           ))}
         </ul>
       </section>
-      <div className='btn-group'>
-        <ul>
-          <button
-            onClick={() => setPage(page - 1)}
-            disabled={page === 1}
-            className='btn btn-outline btn-success'
-          >
-            prev
-          </button>
-          {array.map((number) => (
-            <button
-              className='btn'
-              key={number}
-              onClick={() => setPage(number)}
-            >
-              {number}
-            </button>
-          ))}
-          <button
-            onClick={() => setPage(page + 1)}
-            disabled={page === totalPage}
-            className='btn btn-outline btn-success'
-          >
-            next
-          </button>
-        </ul>
-      </div>
+      <Page
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+        page={page}
+        setPage={setPage}
+        array={array}
+        totalPage={totalPage}
+      />
     </div>
   )
 }

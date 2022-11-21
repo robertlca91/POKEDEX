@@ -17,7 +17,7 @@ const ThemeDark = () => {
 
   return (
     <div>
-      <label className='swap swap-rotate'>
+      <label className='swap swap-rotate z-50'>
         <input type='checkbox' onChange={changeDark} />
 
         <svg
