@@ -16,7 +16,7 @@ const Pokedex = ({ isVisible, setIsVisible }) => {
 
   useEffect(() => {
     axios
-      .get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=754')
+      .get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1154')
       .then((res) => setPokemon(res.data.results))
 
     axios
