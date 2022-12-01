@@ -10,7 +10,7 @@ import { useState } from 'react'
 function App() {
   const [isVisible, setIsVisible] = useState(false)
   return (
-    <div className='dark:text-neutral-focus  dark:bg-gradient-to-r from-cyan-900 via-cyan-500 to-cyan-200 relative'>
+    <div className='dark:text-[#fff]  dark:bg-[#0b1120] relative'>
       <ThemeDark />
       <HashRouter className='App '>
         <Routes>

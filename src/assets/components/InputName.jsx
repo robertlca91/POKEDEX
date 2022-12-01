@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { changeName } from '../../store/slice/name.slice'
 import pokebola from '../image/pokedex.png'
+import doctor from '../image/doctor.png'
 import ash from '../video/ash.mp4'
 
 const InputName = () => {
@@ -19,6 +20,7 @@ const InputName = () => {
   return (
     <div className='flex flex-col text-center justify-center items-center h-screen gap-6 z-50 '>
       <img src={pokebola} width='350px' alt='pokedex' />
+
       <video
         src={ash}
         width='350px'
